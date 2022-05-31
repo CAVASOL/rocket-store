@@ -439,6 +439,7 @@ button {
   font-size: 0.7rem;
   opacity: 0.8;
   margin-bottom: 0;
+  margin-right: 16%;
 }
 
 .categoryListingName {
@@ -484,6 +485,10 @@ button {
 
 .listingDetails {
   margin-bottom: 10rem;
+}
+
+.listingsList {
+  padding: 0;
 }
 
 .shareIconDiv {
