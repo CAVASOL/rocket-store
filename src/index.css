@@ -375,6 +375,7 @@ button {
   justify-content: space-between;
   margin-bottom: 32%;
 }
+
 .exploreCategories a {
   width: 48%;
 }
@@ -390,7 +391,7 @@ button {
 
 .exploreCategoryName {
   font-weight: 500;
-  text-align: left;
+  text-align: center;
 }
 
 .category {
