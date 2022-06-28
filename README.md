@@ -2,6 +2,8 @@
 
 House marketplace built with React and Firebase
 
+<img align="center" src="./rocketstore.png" width="800px" />
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
