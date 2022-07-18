@@ -17,10 +17,8 @@ function Category() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        // Get reference
         const listingsRef = collection(db, 'listings')
 
-        // Create a query
         const q = query(
           listingsRef,
           where('type', '==', params.categoryName),
@@ -28,7 +26,6 @@ function Category() {
           limit(3),
         )
 
-        // Execute query
         const querySnap = await getDocs(q)
 
         const lastVisible = querySnap.docs[querySnap.docs.length - 1]
@@ -53,13 +50,10 @@ function Category() {
     fetchListings()
   }, [params.categoryName])
 
-  // Pagination & Load more
   const onFetchMoreListings = async () => {
     try {
-      // Get reference
       const listingsRef = collection(db, 'listings')
 
-      // Create a query
       const q = query(
         listingsRef,
         where('type', '==', params.categoryName),
@@ -68,7 +62,6 @@ function Category() {
         limit(3),
       )
 
-      // Execute query
       const querySnap = await getDocs(q)
 
       const lastVisible = querySnap.docs[querySnap.docs.length - 1]
