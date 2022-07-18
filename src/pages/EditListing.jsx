@@ -51,7 +51,6 @@ function EditListing() {
   const params = useParams()
   const isMounted = useRef(true)
 
-  // Redirect if listing isn`t user's
   useEffect(() => {
     if (listing && listing.userRef !== auth.currentUser.uid ) {
       toast.error('You can not edit that listing')
@@ -59,7 +58,6 @@ function EditListing() {
     }
   })
 
-  // Fetch listing to edit
   useEffect(() => {
     setLoading(true)
     const fetchListing = async () => {
@@ -78,7 +76,6 @@ function EditListing() {
     fetchListing()
   }, [params.listingId, navigate])
 
-  // Sets userRef to logged in user
   useEffect(() => {
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
@@ -138,7 +135,6 @@ function EditListing() {
       geolocation.lng = longitude
     }
 
-    // Store image in firebase
     const storeImage = async (image) => {
       return new Promise((resolve, reject) => {
         const storage = getStorage()
@@ -169,8 +165,6 @@ function EditListing() {
             reject(error)
           },
           () => {
-            // Handle successful uploads on complete
-            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               resolve(downloadURL)
             })
@@ -199,7 +193,6 @@ function EditListing() {
     delete formDataCopy.address
     !formDataCopy.offer && delete formDataCopy.discountedPrice
 
-    // Update listing
     const docRef = doc(db, 'listings', params.listingId)
     await updateDoc(docRef, formDataCopy)
     setLoading(false)

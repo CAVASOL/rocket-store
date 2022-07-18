@@ -108,7 +108,6 @@ function CreateListing() {
       geolocation.lng = longitude
     }
 
-    // Store image in firebase
     const storeImage = async (image) => {
       return new Promise((resolve, reject) => {
         const storage = getStorage()
@@ -139,8 +138,6 @@ function CreateListing() {
             reject(error)
           },
           () => {
-            // Handle successful uploads on complete
-            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               resolve(downloadURL)
             })

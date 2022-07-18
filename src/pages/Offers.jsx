@@ -22,10 +22,8 @@ function Offers() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        // Get reference
         const listingsRef = collection(db, 'listings')
 
-        // Create a query
         const q = query(
           listingsRef,
           where('offer', '==', true),
@@ -33,7 +31,6 @@ function Offers() {
           limit(3),
         )
 
-        // Execute query
         const querySnap = await getDocs(q)
 
         const lastVisible = querySnap.docs[querySnap.docs.length - 1]
@@ -60,10 +57,8 @@ function Offers() {
 
   const onFetchMoreListings = async () => {
     try {
-      // Get reference
       const listingsRef = collection(db, 'listings')
 
-      // Create a query
       const q = query(
         listingsRef,
         where('offer', '==', true),
@@ -72,7 +67,6 @@ function Offers() {
         limit(3),
       )
 
-      // Execute query
       const querySnap = await getDocs(q)
 
       const lastVisible = querySnap.docs[querySnap.docs.length - 1]
